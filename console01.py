@@ -6,10 +6,10 @@ Description: for debugging and development (front-end use here)
 Authors: Elizabeth Akindele & Idoko Attah
 """
 
-# import BaseModel from base_model/models.base_model import BaseModel
+from models.base_model import BaseModel
 import cmd
 from shlex import split as sp; import shlex
-# import filestorage from engine/models import storage
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):

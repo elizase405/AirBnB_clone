@@ -6,11 +6,12 @@ Description: for debugging and development (front-end use here)
 Authors: Elizabeth Akindele & Idoko Attah
 """
 
-# import BaseModel from base_model/models.base_model import BaseModel
+from models.base_model import BaseModel
 import cmd
-from shlex import split as sp; import shlex
-# import filestorage from engine/models import storage
-# from models.user import User
+import shlex
+from shlex import split as sp
+from models import storage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
