@@ -12,13 +12,17 @@ import shlex
 from shlex import split as sp
 from models import storage
 from models.user import User
-
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """ Command interpreter class definition """
 
     # base_inheritance = ["BaseModel"]
-    classes = ["BaseModel", "User"]
+    classes = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review" ]
     prompt = "(hbnb) "  # custom prompt given
 
     # implementing the quit, EOF, and help commands
