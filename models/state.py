@@ -5,7 +5,7 @@ Contains 1 class:
     State()
 """
 
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 class State(BaseModel):
     """inherits from basemodel

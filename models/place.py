@@ -5,7 +5,7 @@ Contains 1 class:
     Place()
 """
 
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 class Place(BaseModel):
     """inherits from basemodel

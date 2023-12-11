@@ -5,7 +5,7 @@ Contains 1 class:
     Review()
 """
 
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 class Review(BaseModel):
     """inherits from basemodel

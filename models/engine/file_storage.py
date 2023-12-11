@@ -6,11 +6,11 @@ contains 1 class:
 
 import json
 from models.base_model import BaseModel
-from models.place.py import Place
-from models.state.py import State
-from models.city.py import City
-from models.amenity.py import Amenity
-from models.review.py import Review
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 class FileStorage:
     """
