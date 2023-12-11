@@ -42,6 +42,10 @@ class HBNBCommand(cmd.Cmd):
         print("Quit command to exit the program")
         print()  # prints an empty line
 
+    def emptyline(self):
+        """When empty line is entered, nothing is executed"""
+        return
+
     # command interpreter updates
     def do_create(self, line):
         """
@@ -62,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             class_name = line_args[0]
             new_obj = eval(class_name + "()")
-            storage.save()  # save the new instance
+            new_obj.save()  # save the new instance
             print(new_obj.id)
 
     def do_show(self, line):
