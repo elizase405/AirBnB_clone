@@ -6,6 +6,11 @@ contains 1 class:
 
 import json
 from models.base_model import BaseModel
+from models.place.py import Place
+from models.state.py import State
+from models.city.py import City
+from models.amenity.py import Amenity
+from models.review.py import Review
 
 class FileStorage:
     """
@@ -14,7 +19,7 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
-    class_dict = {"BaseModel": BaseModel}
+    class_dict = {"BaseModel": BaseModel, "Place": Place, "State": State, "City": City, "Amenity": Amenity, "Review": Review}
 
     def __init__(self):
         pass
