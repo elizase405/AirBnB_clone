@@ -32,9 +32,17 @@ class BaseModel:
             self.updated_at = datetime.now()
             models.storage.new(self)
 
+    #def __str__(self):
+     #   """returns string format"""
+      #  return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+
     def __str__(self):
-        """returns string format"""
-        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        """
+        Return class name, id, and the dictionary
+        """
+        return ('[{}] ({}) {}'.
+                format(self.__class__.__name__, self.id, self.__dict__))
+
 
     def save(self):
         """Updates 'updated_at' with current datetime
