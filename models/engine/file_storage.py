@@ -5,7 +5,7 @@ contains 1 class:
 """
 
 import json
-import os.path
+from models.base_model import BaseModel
 
 class FileStorage:
     """
@@ -14,6 +14,7 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
+    class_dict = {"BaseModel": BaseModel}
 
     def __init__(self):
         pass
@@ -23,19 +24,23 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """stores in __objects an the obj
+        """stores in __objects an obj
         with key <obj class name>.id"""
-        key = f"{self.__class__.__name__}.{obj.id}"
+        key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj
 
     def save(self):
         """serialize __objects to JSON file"""
-        json.dump(self.__objects, self.__file_path)
+        with open(self.__file_path, 'w', encoding='utf-8') as f:
+            d = { k : v.to_dict() for k, v in self.__objects.items()}
+            json.dump(d, f)
 
     def reload(self):
         """deserializes JSON file to __objects if file exists"""
-        if os.path.isfile(self.__file_path) == False:
+        try:
+            with open(self.__file_path, 'r', encoding="utf-8") as f:
+                obj_dict = json.load(f)
+            for value in obj_dict.values():
+                self.new(self.class_dict[value["__class__"]](**value))
+        except FileNotFoundError:
             pass
-        else:
-            json.load(self.__file_path)
-
